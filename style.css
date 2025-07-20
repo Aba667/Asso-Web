@@ -839,6 +839,6 @@ footer a:hover {
         flex-wrap: nowrap; /* Force les images à rester sur une seule ligne */
     }
     .news-images-horizontal img {
-        flex: 0 0 70%; /* Sur mobile, chaque image prendra 70% de la largeur du conteneur, permettant le défilement */
+        flex: 0 0 70%; /* Sur mobile, chaque image prendra 70% de la largeur du  */
     }
 }
