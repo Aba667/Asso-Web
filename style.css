@@ -813,3 +813,32 @@ footer a:hover {
         height: 150px;
     }
 }
+/* Styles pour les images côte à côte dans une news-card */
+.news-images-horizontal {
+    display: flex; /* Utilise Flexbox pour aligner les éléments sur une ligne */
+    gap: 10px; /* Ajoute un petit espace entre les images */
+    margin-bottom: 15px; /* Espace sous le conteneur d'images */
+    overflow-x: auto; /* Permet le défilement horizontal si les images sont trop grandes */
+    padding-bottom: 5px; /* Espace pour la barre de défilement si nécessaire */
+    scroll-snap-type: x mandatory; /* Optionnel: aide au défilement par 'snap' */
+    -webkit-overflow-scrolling: touch; /* Améliore le défilement sur iOS */
+}
+
+.news-images-horizontal img {
+    flex: 1 0 48%; /* Chaque image prendra environ la moitié de l'espace, avec un léger rétrécissement si nécessaire */
+    width: 100%; /* S'assure que l'image remplit son conteneur flex */
+    height: 200px; /* Hauteur fixe comme tes autres images */
+    object-fit: cover; /* Recadre l'image pour couvrir la zone sans déformation */
+    border-radius: 5px; /* Bords légèrement arrondis */
+    scroll-snap-align: start; /* Optionnel: les images se "snapperont" au début du défilement */
+}
+
+/* Ajustements pour les petits écrans si les images deviennent trop petites */
+@media (max-width: 600px) {
+    .news-images-horizontal {
+        flex-wrap: nowrap; /* Force les images à rester sur une seule ligne */
+    }
+    .news-images-horizontal img {
+        flex: 0 0 70%; /* Sur mobile, chaque image prendra 70% de la largeur du conteneur, permettant le défilement */
+    }
+}
