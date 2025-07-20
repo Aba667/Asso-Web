@@ -842,3 +842,33 @@ footer a:hover {
         flex: 0 0 70%; /* Sur mobile, chaque image prendra 70% de la largeur du  */
     }
 }
+/* Styles for videos side-by-side in a news-card */
+.news-videos-horizontal {
+    display: flex; /* Use Flexbox to align elements on a row */
+    gap: 10px; /* Add a small gap between the videos */
+    margin-top: 15px; /* Space above the video container */
+    margin-bottom: 15px; /* Space below the video container */
+    overflow-x: auto; /* Allows horizontal scrolling if videos are too wide */
+    padding-bottom: 5px; /* Space for scrollbar if needed */
+    -webkit-overflow-scrolling: touch; /* Improves scrolling on iOS */
+    scroll-snap-type: x mandatory; /* Optional: helps with "snapping" scroll behavior */
+}
+
+.news-videos-horizontal video {
+    flex: 1 0 48%; /* Each video takes about half the width, with slight flexibility */
+    width: 100%; /* Ensures the video fills its flex container */
+    height: 200px; /* Fixed height, matching your image height */
+    object-fit: cover; /* Crops the video to cover the area without distortion */
+    border-radius: 5px; /* Slightly rounded corners */
+    scroll-snap-align: start; /* Optional: videos will "snap" into view when scrolling */
+}
+
+/* Adjustments for smaller screens for videos */
+@media (max-width: 600px) {
+    .news-videos-horizontal {
+        flex-wrap: nowrap; /* Forces videos to stay on one line */
+    }
+    .news-videos-horizontal video {
+        flex: 0 0 70%; /* On mobile, each video will take 70% of the container width, allowing for scrolling */
+    }
+}
