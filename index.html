@@ -10,226 +10,229 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" type="image/png" href="7a0bb449-8096-407e-ab2a-561cce041127.JPG">
-    <link rel="apple-touch-icon" sizes="180x180" href="7a0bb449-8096-407e-ab2a-561cce041127.JPG">
 </head>
 <body>
 
-    <header>
-        <div class="container">
+    <header id="main-header">
+        <div class="container header-container">
             <div class="logo">
-                <img src="a33778d1-7937-483f-aaf0-44b7c0ddfc58-removebg-preview.png" alt="Logo Jolof Care"> <h1>JOLOF CARE</h1>
-                <p>JOLOF WE ARE</p>
+                <img src="a33778d1-7937-483f-aaf0-44b7c0ddfc58-removebg-preview.png" alt="Logo Jolof Care">
+                <div class="logo-text">
+                    <h1>JOLOF CARE</h1>
+                    <p>JOLOF WE ARE</p>
+                </div>
             </div>
             <nav>
-                <ul>
+                <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+                <ul class="nav-links">
                     <li><a href="#hero">Accueil</a></li>
                     <li><a href="#about">À Propos</a></li>
                     <li><a href="#our-team">Notre Équipe</a></li>
                     <li><a href="#actions">Nos Actions</a></li>
-                    <li><a href="#news-events">Actualités & Événements</a></li>
-                    <li><a href="#contact">Contact & Don</a></li>
+                    <li><a href="#news-events">Actualités</a></li>
+                    <li><a href="#contact" class="cta-link">Faire un Don</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-   <main>
+    <main>
         <section id="hero" class="hero-section">
+            <div class="hero-overlay"></div>
             <div class="container">
                 <div class="hero-content">
-                    <h2>Jëfandikoo ndimbal nguir xeewal<br>L’aide un tremplin pour le développement</h2>
-                    <p>JOLOF CARE est une association humanitaire portée par de jeunes étudiants, engagée pour briser les barrières de l'inégalité par l'action et la connaissance dans les villages reculés du Sénégal.</p>
-                    <a href="https://www.helloasso.com/associations/jolof-care" target="_blank" class="button primary-button">Faire un Don</a>
-                    <a href="#actions" class="button secondary-button">Découvrir nos Actions</a>
+                    <span class="badge">Association Humanitaire</span>
+                    <h2>Jëfandikoo ndimbal nguir xeewal<br>L’aide : un tremplin pour le développement</h2>
+                    <p>JOLOF CARE s'engage pour briser les barrières de l'inégalité par l'action et la connaissance dans les villages reculés du Sénégal.</p>
+                    <div class="hero-buttons">
+                        <a href="https://www.helloasso.com/associations/jolof-care" target="_blank" class="button primary-button">Faire un Don</a>
+                        <a href="#actions" class="button secondary-button-white">Nos Actions</a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="about-section">
+        <section id="about" class="section about-section">
             <div class="container">
-                <h2>À Propos de JOLOF CARE</h2>
+                <div class="section-header">
+                    <h2>Qui sommes-nous ?</h2>
+                    <p class="subtitle">Plus qu'un projet, un engagement de vie.</p>
+                </div>
+                
                 <div class="about-content-wrapper">
                     <div class="about-intro">
                         <p class="highlight-text">
-                            Jolof Care est une association caritative créée par de jeunes étudiants sénégalais ambitieux et espérant un développement par l'aide. Cette association est plus qu'un projet mais un tremplin pour l'éducation et le développement.
+                            "Jolof Care est née de l'ambition de jeunes étudiants sénégalais convaincus que le développement passe par l'entraide."
                         </p>
                         <p>
-                            L’association a pour mission d’aider les villages reculés du Sénégal et de l’Afrique en leur apportant les outils nécessaires qui permettront l’accès à une bonne éducation et un développement humain idéal.
+                            Notre mission est d’aider les villages reculés du Sénégal et de l’Afrique en leur apportant les outils nécessaires pour l'accès à l'éducation et un développement humain durable. 
+                            <strong>Join us to be part of the Game Changers !</strong>
                         </p>
-                        <p>
-                            Jolof Care est ouverte à des partenariats qui respecteront nos valeurs d’entraide, de solidarité et de respect mutuel. **Join us to be part of the Game Changers !**
-                        </p>
-                        <a href="#contact" class="button primary-button">Devenir Partenaire</a>
                     </div>
 
                     <div class="about-grid">
                         <div class="about-item">
+                            <i class="fas fa-bullseye item-icon"></i>
                             <h3>Notre Mission</h3>
-                            <p>
-                                Notre mission est de briser les barrières de l'inégalité en apportant un soutien essentiel et des opportunités là où elles sont le plus nécessaires. Nous croyons en l'accès équitable aux ressources et à l'information.
-                            </p>
+                            <p>Briser les barrières de l'inégalité en apportant soutien et opportunités là où l'urgence se fait sentir.</p>
                         </div>
                         <div class="about-item">
+                            <i class="fas fa-eye item-icon"></i>
                             <h3>Notre Vision</h3>
-                            <p>
-                                Nous rêvons d'un Sénégal où le manque d'information et de ressources ne freine plus le développement et l'épanouissement des communautés, surtout dans les zones isolées.
-                            </p>
+                            <p>Un Sénégal où l'isolement géographique n'est plus un frein à l'épanouissement des communautés.</p>
                         </div>
                         <div class="about-item">
+                            <i class="fas fa-heart item-icon"></i>
                             <h3>Nos Valeurs</h3>
-                            <ul>
+                            <ul class="values-list">
                                 <li>Solidarité</li>
                                 <li>Transparence</li>
                                 <li>Engagement</li>
                                 <li>Éducation</li>
-                                <li>Respect</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section id="our-team" class="team-section">
-            <div class="container">
-                <h2>Notre Force : L'Engagement</h2>
-                <div class="team-member">
-                    
-                    <h3>Khadija KOUNDOUL</h3>
-                    <p class="role">Présidente Fondatrice de JOLOF CARE</p>
-                    <p>
-                        Je suis Khadija KOUNDOUL, présidente de Jolof Care et également à l’initiative de la création de l’association. L’idée de la créer s’est nourrie du profond attachement que j’éprouve envers mes origines, d’où viennent mes parents et mes grands-parents, **NGUITH, village** situé dans le département de Linguère, région de Louga au Sénégal. Consciente et témoin des inégalités qui existent entre les villes et les **villages**, et accompagnée d’une équipe composée de jeunes étudiants passionnés dont la plupart sont originaires de cette même localité, le besoin de faire bouger les choses a été notre point de départ vers cette aventure. Elle consiste donc à apporter notre pierre à l’édifice, compter sur nous-mêmes et les nôtres pour amorcer notre développement.
-                    </p>
-                    <p>
-                        Cependant, cela ne peut aboutir qu’en mettant l’accent sur l’éducation des jeunes, nos petits frères et petites sœurs, en leur donnant les outils nécessaires et en installant les conditions propices à leur réussite professionnelle et à leur développement humain, sans oublier un pilier fondamental qui est la santé sur lequel l’équipe s’active aussi particulièrement, ainsi que l'accès à l'informatique.
-                    </p>
-                    <p>
-                        Notre mission s’étend sur l’ensemble des **villages** reculés du Sénégal, les plus nécessiteux. Notre conviction, notre devoir ne s’arrête pas qu’à l’horizon du Sénégal, mais des **villages** reculés de l’Afrique entière.
-                    </p>
-                    <p>
-                        Pour nous, le manque d'information et de ressources ne doit jamais être un obstacle au développement humain. Chaque jour, nous œuvrons avec détermination pour apporter un soutien concret et des opportunités réelles.
-                    </p>
-                    <p>
-                        Votre soutien est la clé de notre succès et nous permet d’améliorer et de transformer des vies.
-                    </p>
-                    <p>
-                        Ensemble, faisons de l’aide un tremplin pour le développement.
-                    </p>
-                    <p>
-                        Merci de votre visite et de votre intérêt pour JOLOF CARE.
-                    </p>
-                </div>
-            </div>
-        </section>
-        <section id="actions" class="actions-section">
-            <div class="container">
-                <h2>Nos Actions Concrètes</h2>
-                <div class="action-item">
-                    <div class="action-icon">📦</div>
-                    <h3>Distribution de Dons Essentiels</h3>
-                    <p>Notre premier objectif est de distribuer des matériaux vitaux pour améliorer les conditions de vie et d'apprentissage :</p>
-                    <ul>
-                        <li>Matériels médicaux : Pour soutenir la santé des populations.</li>
-                        <li>Matériels sportifs : Pour encourager l'activité physique et le bien-être.</li>
-                        <li>Matériels scolaires : Pour faciliter l'accès à l'éducation et l'apprentissage.</li>
-                    </ul>
-                    
-                </div>
-                <div class="action-item">
-                    <div class="action-icon">💡</div>
-                    <h3>Transmission d'Informations Utiles</h3>
-                    <p>Le second pilier de notre action est de lutter contre l'inégalité par le partage de connaissances :</p>
-                    <ul>
-                        <li>Opportunités professionnelles : Guider les jeunes vers des parcours porteurs d’ambitions concrètes et réalistes.</li>
-                        <li>Informations pratiques : Aider les communautés à prendre des décisions éclairées pour leur développement.</li>
-                        <li>Formations et ateliers : Organiser des sessions pour renforcer les compétences locales.</li>
-                    </ul>
-                   
-                </div>
-            </div>
-        </section>
 
-        <section id="news-events" class="news-events-section" >
+        <section id="our-team" class="section team-section">
             <div class="container">
-                <h2>Actualités & Événements</h2>
-                <p>Restez informé de nos dernières initiatives, de nos missions sur le terrain et des événements à venir.</p>
-                <div class="news-grid">
-                    <article class="news-card">
-    <div class="news-images-horizontal">
-        <img src="2bf75226-f38f-4441-b07a-9c4fae5a3273.JPG" alt="Distribution de dons">
-        <img src="529cca25-4761-491a-a38d-b93c2d2b8fad.JPG" alt="Transmission d'informations">
-    </div>
-    <h3>Distribution de dons médicaux à NGUITH</h3>
-    <p class="date">20/06/2024</p>
-    <p>
-        La présidente effectuait une distribution de dons médicaux à la case de santé de NGUITH, localité située dans la région de Louga, département de Linguère sous la présence effective de l’assistante du chef de service.
-        Tous les dons ont été collectés par notre équipe auprès d’organismes de santé, du milieu éducatif et de particuliers bénévoles. Des fonds propres aux membres de l’équipe contribuent aussi à la réalisation de tous ses projets.
-    </p>
-    <a href="#" class="read-more">Lire la suite</a>
-<article class="news-card">
-    <div class="news-videos-horizontal">
-        <video controls src="jolofcare.mov"></video>
-        <video controls src="JolofCare2.mov"></video>
-    </div>
-    <h3>Journée de lancement officiel de l’association à Paris</h3>
-    <p class="date">28/12/2024</p>
-    <p>
-        Au programme : tournoi de football, récoltes de dons et interview des participants, remise de trophées à la meilleure équipe et à la meilleure joueuse ou joueur du tournoi.
-        Lors de cette journée de convivialité et de partage, l’association Jolof Care a par la même occasion lancé officiellement son existence et récolté de multiples dons en nature comme des matériels scolaires et des dons en argent dont la prise en charge est assurée par le trésorier de l’association.
-    </p>
-    <a href="#" class="read-more">Lire la suite</a>
-</article>
-                    
-                </div>
-                <div class="text-center">
-                    <a href="#" class="button secondary-button">Voir toutes les actualités</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="contact-section">
-            <div class="container">
-                <h2>Contactez-nous & Faites un Don</h2>
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <h3>Restons Connectés</h3>
-                        <p>Vous avez des questions, des suggestions ou vous souhaitez devenir bénévole ? N'hésitez pas à nous contacter !</p>
-                        <ul>
-                            <li><i class="fas fa-envelope"></i> Email: <a href="mailto:Jolofcare@gmail.com">Jolofcare@gmail.com</a></li>
-                            <li><i class="fas fa-phone"></i> Téléphone: +33 7 53 28 42 23</li>
-                            <li><i class="fas fa-map-marker-alt"></i> Adresse: 47 Rue Vantroyen, 59800 Lille</li>
-                        </ul>
-                        <div class="social-links">
-                            <a href="https://www.linkedin.com/company/JolofCare/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <h2>L'Esprit Jolof Care</h2>
+                <div class="team-card">
+                    <div class="team-content">
+                        <h3>Khadija KOUNDOUL</h3>
+                        <span class="role">Présidente Fondatrice</span>
+                        <div class="team-bio">
+                            <p>
+                                L’idée de créer Jolof Care s’est nourrie de mon attachement profond envers mes origines : <strong>NGUITH</strong>. Consciente des inégalités flagrantes entre villes et villages, j'ai réuni une équipe de jeunes passionnés pour faire bouger les lignes.
+                            </p>
+                            <p>
+                                Notre stratégie ? Miser sur l'éducation des plus jeunes, la santé et l'accès au numérique. Nous voulons que chaque villageois puisse compter sur nous pour amorcer son propre développement.
+                            </p>
+                            <p class="quote">"Ensemble, faisons de l’aide un tremplin pour le développement."</p>
                         </div>
                     </div>
-                    <div class="contact-form-container">
-                        <h3>Envoyez-nous un Message</h3>
-                        <form id="contactForm" class="contact-form">
+                </div>
+            </div>
+        </section>
+
+        <section id="actions" class="section actions-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Nos Piliers d'Action</h2>
+                </div>
+                <div class="actions-grid">
+                    <div class="action-card">
+                        <div class="action-icon-box">📦</div>
+                        <h3>Dons Matériels</h3>
+                        <p>Améliorer immédiatement les conditions de vie :</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Matériels médicaux</li>
+                            <li><i class="fas fa-check"></i> Équipements sportifs</li>
+                            <li><i class="fas fa-check"></i> Fournitures scolaires</li>
+                        </ul>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-icon-box">💡</div>
+                        <h3>Partage de Savoir</h3>
+                        <p>Lutter contre l'inégalité par la connaissance :</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Orientation professionnelle</li>
+                            <li><i class="fas fa-check"></i> Ateliers de formation</li>
+                            <li><i class="fas fa-check"></i> Informations pratiques</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="news-events" class="section news-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Actualités & Terrain</h2>
+                </div>
+                <div class="news-grid">
+                    <article class="news-card">
+                        <div class="news-media-scroll">
+                            <img src="2bf75226-f38f-4441-b07a-9c4fae5a3273.JPG" alt="Action Nguith">
+                            <img src="529cca25-4761-491a-a38d-b93c2d2b8fad.JPG" alt="Action Nguith 2">
+                        </div>
+                        <div class="news-content">
+                            <span class="date">20 Juin 2024</span>
+                            <h3>Distribution médicale à NGUITH</h3>
+                            <p>La présidente a effectué une distribution de dons vitaux à la case de santé de NGUITH, en présence des autorités locales.</p>
+                            <a href="#" class="read-more">Lire l'article <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="news-media-scroll">
+                             <div class="video-placeholder"><i class="fas fa-play-circle"></i> Vidéo Lancement</div>
+                        </div>
+                        <div class="news-content">
+                            <span class="date">28 Déc 2024</span>
+                            <h3>Lancement Officiel à Paris</h3>
+                            <p>Tournoi de football solidaire, récolte de dons et convivialité pour marquer le début de notre aventure officielle.</p>
+                            <a href="#" class="read-more">Lire l'article <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <h2>Restons en contact</h2>
+                        <p>Une question ? Une envie d'aider ?</p>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:Jolofcare@gmail.com">Jolofcare@gmail.com</a>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+33 7 53 28 42 23</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>47 Rue Vantroyen, 59800 Lille</span>
+                        </div>
+                        <div class="social-links big-socials">
+                            <a href="https://www.linkedin.com/company/JolofCare/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-box">
+                        <h3>Envoyez un message</h3>
+                        <form id="contactForm">
                             <div class="form-group">
-                                <label for="name">Votre Nom :</label>
-                                <input type="text" id="name" name="name" required>
+                                <label for="name">Nom complet</label>
+                                <input type="text" id="name" name="name" required placeholder="Votre nom">
                             </div>
                             <div class="form-group">
-                                <label for="email">Votre Email :</label>
-                                <input type="email" id="email" name="email" required>
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required placeholder="votre@email.com">
                             </div>
                             <div class="form-group">
-                                <label for="subject">Sujet :</label>
-                                <input type="text" id="subject" name="subject">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="4" required placeholder="Comment pouvons-nous vous aider ?"></textarea>
                             </div>
-                            <div class="form-group">
-                                <label for="message">Votre Message :</label>
-                                <textarea id="message" name="message" rows="5" required></textarea>
-                            </div>
-                            <button type="submit" class="button primary-button">Envoyer le Message</button>
+                            <button type="submit" class="button primary-button full-width">Envoyer</button>
                             <div id="formMessage" class="form-message"></div>
                         </form>
                     </div>
                 </div>
-                <div class="donation-section">
-                    <h3>Faites un Don et Changez des Vies !</h3>
-                    <p>Chaque contribution, grande ou petite, fait une réelle différence. Votre générosité nous permet d'acquérir des matériaux essentiels et de mener nos actions sur le terrain au Sénégal.</p>
-                    <a href="https://www.helloasso.com/associations/jolof-care" target="_blank" class="button primary-button big-button">Je Fais un Don Sécurisé sur HelloAsso</a>
+
+                <div class="donation-banner">
+                    <div class="donation-content">
+                        <h3>Votre générosité est notre moteur</h3>
+                        <p>100% des dons servent directement nos actions sur le terrain.</p>
+                    </div>
+                    <a href="https://www.helloasso.com/associations/jolof-care" target="_blank" class="button accent-button">Faire un Don Sécurisé</a>
                 </div>
             </div>
         </section>
@@ -238,7 +241,10 @@
     <footer>
         <div class="container">
             <p>&copy; 2025 JOLOF CARE. Tous droits réservés.</p>
-            <p><a href="#">Mentions Légales</a> | <a href="#">Politique de Confidentialité</a></p>
+            <div class="footer-links">
+                <a href="#">Mentions Légales</a>
+                <a href="#">Politique de Confidentialité</a>
+            </div>
         </div>
     </footer>
 
