@@ -1,29 +1,33 @@
-
-/* Variables de couleurs inspirées des images de Jolof Care */
+/* --- VARIABLES (Couleurs Intactes) --- */
 :root {
-    /* Couleurs principales basées sur le logo et les fonds clairs */
-    --primary-color: #5BA82F; /* Un vert un peu plus vif, tiré du logo */
-    --secondary-color: #3C5C36; /* Un vert foncé/gris du logo et des textes principaux */
-    --accent-color: #F0B800; /* Un jaune doré/sable pour les accents, rappellant les paysages */
-    --background-light: #F0EEE7; /* Un beige très clair, proche des fonds des cartes */
-    --background-dark: #E2E1DC; /* Un gris-beige un peu plus soutenu pour alterner les sections */
-    --text-color-dark: #333333; /* Texte sombre pour la lisibilité */
-    --text-color-light: #FFFFFF; /* Texte blanc pour les fonds foncés */
-    --button-hover: #4A8C26; /* Une nuance de vert pour le survol des boutons */
-    --shadow-color: rgba(0, 0, 0, 0.1); /* Ombre douce */
-    --card-background: #F8F7F4; /* Un blanc cassé pour les cartes et conteneurs intérieurs */
+    --primary-color: #5BA82F;
+    --secondary-color: #3C5C36;
+    --accent-color: #F0B800;
+    --background-light: #F0EEE7;
+    --background-dark: #E2E1DC;
+    --text-color-dark: #333333;
+    --text-color-light: #FFFFFF;
+    --button-hover: #4A8C26;
+    --shadow-color: rgba(0, 0, 0, 0.08); /* Ombre un peu plus douce */
+    --card-background: #F8F7F4;
+    --radius: 12px; /* Arrondis plus modernes */
 }
 
-/* Base */
+/* --- RESET & BASE --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px; /* Remplace les marges négatives pour le header */
+}
+
 body {
     font-family: 'Open Sans', sans-serif;
-    line-height: 1.6;
+    line-height: 1.7; /* Meilleure lisibilité */
     color: var(--text-color-dark);
     background-color: var(--background-light);
 }
@@ -36,55 +40,36 @@ body {
 
 h1, h2, h3 {
     font-family: 'Montserrat', sans-serif;
-    color: var(--secondary-color); /* Vert foncé pour les titres */
-    margin-bottom: 20px;
-}
-
-h2 {
-    font-size: 2.5em;
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-h3 {
-    font-size: 1.8em;
-}
-
-p {
-    margin-bottom: 15px;
+    color: var(--secondary-color);
+    font-weight: 700;
 }
 
 a {
-    color: var(--primary-color); /* Lien dans le vert primaire */
     text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: var(--button-hover);
-}
-
-ul {
-    list-style: none;
+    transition: all 0.3s ease;
 }
 
 img {
     max-width: 100%;
-    height: auto;
     display: block;
 }
 
-/* Boutons */
+/* --- BOUTONS --- */
 .button {
     display: inline-block;
-    padding: 12px 25px;
-    border-radius: 5px;
+    padding: 14px 28px;
+    border-radius: 50px; /* Boutons pilules plus modernes */
     font-weight: 600;
     text-align: center;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    cursor: pointer;
     border: none;
-    font-size: 1em;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-size: 1rem;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .primary-button {
@@ -94,87 +79,94 @@ img {
 
 .primary-button:hover {
     background-color: var(--button-hover);
-    color: var(--text-color-light);
 }
 
-.secondary-button {
+.secondary-button-white {
     background-color: transparent;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
+    color: white;
+    border: 2px solid white;
     margin-left: 15px;
 }
 
-.secondary-button:hover {
-    background-color: var(--primary-color);
-    color: var(--text-color-light);
+.secondary-button-white:hover {
+    background-color: white;
+    color: var(--primary-color);
 }
 
-.big-button {
-    padding: 15px 30px;
-    font-size: 1.2em;
-    margin-top: 20px;
+.accent-button {
+    background-color: var(--accent-color);
+    color: var(--text-color-dark);
 }
 
-/* Header */
+.full-width {
+    width: 100%;
+}
+
+/* --- HEADER --- */
 header {
-    background-color: var(--background-light);
-    padding: 20px 0;
-    border-bottom: 1px solid #eee;
-    box-shadow: 0 2px 5px var(--shadow-color);
-    position: sticky;
+    background-color: rgba(240, 238, 231, 0.95); /* Légère transparence */
+    backdrop-filter: blur(10px); /* Effet flou moderne */
+    padding: 15px 0;
+    position: fixed;
     top: 0;
+    left: 0;
+    width: 100%;
     z-index: 1000;
-    min-height: 120px; /* Hauteur de base quand le logo est visible */
-    display: flex;
-    align-items: center;
-    /* Transition pour une animation fluide des changements de style */
-    transition: transform 0.3s ease-out, min-height 0.3s ease-out, padding 0.3s ease-out, opacity 0.3s ease-out; /* Ajout d'opacité pour la transition */
-    overflow: hidden; /* Cache le contenu qui dépasse quand la hauteur diminue */
+    box-shadow: 0 2px 10px var(--shadow-color);
+    transition: transform 0.3s ease;
 }
 
-header .container {
+/* Classe ajoutée par JS pour cacher le menu */
+header.hidden {
+    transform: translateY(-100%);
+}
+
+.header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
-   
-    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
 }
 
 .logo {
     display: flex;
     align-items: center;
-    transition: transform 0.3s ease-out, opacity 0.3s ease-out; 
+    gap: 15px;
 }
 
 .logo img {
-    height: 250px;
+    height: 70px; /* Taille beaucoup plus raisonnable */
     width: auto;
-    margin-right: 100px;
-    transition: height 0.3s ease-out, opacity 0.3s ease-out; 
 }
 
-nav {
-    align-self: center;
-    transition: transform 0.3s ease-out; /* Transition pour la nav */
+.logo-text h1 {
+    font-size: 1.5rem;
+    line-height: 1;
+    margin: 0;
+}
+
+.logo-text p {
+    font-size: 0.8rem;
+    margin: 0;
+    letter-spacing: 2px;
+    color: var(--primary-color);
+    font-weight: 700;
 }
 
 nav ul {
     display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-    justify-content: center;
+    gap: 25px;
+    list-style: none;
+    align-items: center;
 }
 
 nav ul li a {
     color: var(--secondary-color);
     font-weight: 600;
-    padding: 5px 0;
+    font-size: 0.95rem;
     position: relative;
 }
 
-nav ul li a::after {
+nav ul li a:not(.cta-link)::after {
     content: '';
     position: absolute;
     width: 0;
@@ -182,7 +174,7 @@ nav ul li a::after {
     background-color: var(--primary-color);
     left: 0;
     bottom: -5px;
-    transition: width 0.3s ease-in-out;
+    transition: width 0.3s;
 }
 
 nav ul li a:hover::after,
@@ -190,379 +182,413 @@ nav ul li a.active::after {
     width: 100%;
 }
 
-/* NOUVELLE CLASSE POUR Cacher LE HEADER QUAND ON SCROLL VERS LE BAS */
-.header-hidden-completely {
-    transform: translateY(-100%); /* Le fait remonter entièrement pour le cacher */
-    opacity: 0; /* Le rend complètement transparent */
-    pointer-events: none; /* Désactive les clics sur le header invisible */
+/* Lien spécial pour le Don dans le menu */
+.cta-link {
+    background-color: var(--primary-color);
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 30px;
 }
 
-
-/* Sections */
-section {
-    padding: 80px 0;
-    text-align: center;
-    /* La marge supérieure des sections doit compenser la hauteur MAXIMALE du header */
-    margin-top: -120px; /* La hauteur non compacte du header */
-    padding-top: calc(80px + 120px); /* Compense le décalage en ajoutant 120px au padding-top */
-    scroll-margin-top: 120px; /* Important pour le défilement des ancres, doit être la hauteur max du header */
+.cta-link:hover {
+    background-color: var(--button-hover);
 }
 
-section:nth-of-type(even) {
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    cursor: pointer;
+}
+
+/* --- SECTIONS GÉNÉRALES --- */
+.section {
+    padding: 100px 0;
+}
+
+.section:nth-of-type(even) {
     background-color: var(--background-dark);
 }
 
-/* Hero Section */
-.hero-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hero-background.jpeg') no-repeat center center/cover;
-    color: var(--text-color-light);
-    padding: 150px 0;
+.section-header {
     text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.section-header .subtitle {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* --- HERO --- */
+.hero-section {
+    position: relative;
+    height: 90vh; /* Prend quasi tout l'écran */
+    min-height: 600px;
+    background: url('hero-background.jpeg') no-repeat center center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 60vh;
-    scroll-margin-top: 120px; /* Doit être la hauteur max du header */
+    text-align: center;
+    color: white;
+    margin-top: 0;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Dégradé plus lisible */
+    background: linear-gradient(135deg, rgba(60, 92, 54, 0.85), rgba(91, 168, 47, 0.6));
+    z-index: 1;
 }
 
 .hero-content {
-    max-width: 800px;
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.badge {
+    background-color: rgba(255,255,255,0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    display: inline-block;
 }
 
 .hero-content h2 {
-    color: var(--text-color-light);
-    font-size: 3.5em;
-    margin-bottom: 25px;
+    color: white;
+    font-size: 3.5rem;
     line-height: 1.2;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
 .hero-content p {
-    font-size: 1.2em;
+    font-size: 1.3rem;
     margin-bottom: 40px;
-    opacity: 0.9;
+    opacity: 0.95;
 }
 
-/* ABOUT SECTION - STYLES AMÉLIORÉS */
-.about-section {
-    background-color: var(--background-light);
-    text-align: center;
-}
-
-.about-section h2 {
-    color: var(--secondary-color);
-}
-
+/* --- ABOUT --- */
 .about-content-wrapper {
     display: flex;
-    flex-direction: column; /* Par défaut, les éléments s'empilent */
-    align-items: center;
-    gap: 50px; /* Espace entre l'intro et la grille */
-    margin-top: 50px;
+    flex-direction: column;
+    gap: 50px;
 }
 
 .about-intro {
-    max-width: 900px; /* Limite la largeur du texte introductif */
+    background-color: white;
+    padding: 50px;
+    border-radius: var(--radius);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    text-align: center;
+    max-width: 900px;
     margin: 0 auto;
-    background-color: var(--card-background);
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px var(--shadow-color);
-    text-align: center; /* Centrer le texte dans cette boîte */
-}
-
-.about-intro p {
-    font-size: 1.2em;
-    line-height: 1.8;
-    color: var(--text-color-dark);
-    margin-bottom: 20px;
+    border-left: 5px solid var(--primary-color);
 }
 
 .about-intro .highlight-text {
-    font-size: 1.4em; /* Texte plus grand pour la phrase clé */
+    font-size: 1.4rem;
+    color: var(--secondary-color);
     font-weight: 600;
-    color: var(--primary-color); /* Couleur du texte principale pour la mise en évidence */
-    margin-bottom: 30px;
-}
-
-.about-intro .button {
-    margin-top: 20px;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 20px;
 }
 
 .about-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
-    width: 100%; /* La grille prend toute la largeur du wrapper */
-    text-align: left;
 }
 
 .about-item {
     background-color: var(--card-background);
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px var(--shadow-color);
-    transition: transform 0.3s ease;
+    padding: 40px 30px;
+    border-radius: var(--radius);
+    text-align: center;
+    transition: transform 0.3s;
 }
 
 .about-item:hover {
+    transform: translateY(-10px);
+    background-color: white;
+    box-shadow: 0 15px 30px var(--shadow-color);
+}
+
+.item-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.values-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.values-list li {
+    background: #e8f5e9;
+    color: var(--secondary-color);
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* --- TEAM --- */
+.team-card {
+    background-color: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.team-content {
+    padding: 60px;
+    text-align: center;
+}
+
+.team-content h3 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.role {
+    color: var(--primary-color);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 30px;
+}
+
+.team-bio {
+    text-align: justify;
+    color: #555;
+}
+
+.team-bio p {
+    margin-bottom: 20px;
+}
+
+.quote {
+    font-style: italic;
+    font-weight: 600;
+    color: var(--secondary-color);
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+/* --- ACTIONS --- */
+.actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+}
+
+.action-card {
+    background-color: white;
+    border-radius: var(--radius);
+    padding: 40px;
+    box-shadow: 0 5px 20px var(--shadow-color);
+    transition: transform 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.action-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: var(--primary-color);
+}
+
+.action-card:hover {
     transform: translateY(-5px);
 }
 
-.about-item h3 {
-    color: var(--primary-color);
-    font-size: 1.5em;
-    margin-bottom: 15px;
-}
-
-.about-item ul {
-    list-style: disc;
-    margin-left: 20px;
-}
-
-.about-item ul li {
-    margin-bottom: 8px;
-}
-
-/* Team Section (Notre Équipe) */
-.team-section {
-    background-color: var(--background-dark);
-    text-align: center;
-}
-
-.team-member {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: var(--card-background);
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px var(--shadow-color);
-}
-
-.president-photo {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin: 0 auto 25px;
-    border: 5px solid var(--primary-color);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
-}
-
-.team-member h3 {
-    font-size: 2.2em;
-    color: var(--secondary-color);
-    margin-bottom: 10px;
-}
-
-.team-member .role {
-    font-size: 1.2em;
-    color: var(--primary-color);
-    font-weight: 600;
-    margin-bottom: 25px;
-}
-
-.team-member p {
-    font-size: 1.1em;
-    line-height: 1.8;
-    color: var(--text-color-dark);
-    text-align: justify;
+.action-icon-box {
+    font-size: 3rem;
     margin-bottom: 20px;
 }
 
-.small-button {
-    padding: 8px 18px;
-    font-size: 0.9em;
-    margin-top: 15px;
-    margin-left: 0;
-}
-
-.small-button i {
-    margin-right: 8px;
-}
-
-/* Actions Section */
-.actions-section .action-item {
-    background-color: var(--card-background);
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px var(--shadow-color);
-    margin-bottom: 40px;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.actions-section .action-item:last-child {
-    margin-bottom: 0;
-}
-
-.actions-section .action-item h3 {
-    color: var(--secondary-color);
-    font-size: 2em;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.action-icon {
-    font-size: 3em;
-    color: var(--primary-color);
-    margin-bottom: 20px;
-}
-
-.actions-section .action-item ul {
+.action-card ul {
     list-style: none;
-    padding: 0;
-    margin-top: 20px;
-}
-
-.actions-section .action-item ul li {
-    background-color: var(--background-dark);
-    padding: 10px 20px;
-    margin-bottom: 10px;
-    border-left: 5px solid var(--primary-color);
-    border-radius: 5px;
-    font-weight: 600;
-}
-
-.actions-section .action-item img {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    border-radius: 8px;
     margin-top: 25px;
-    box-shadow: 0 4px 10px var(--shadow-color);
 }
 
-
-/* News & Events Section */
-.news-events-section {
-    background-color: var(--background-light);
+.action-card ul li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
+.action-card ul li i {
+    color: var(--primary-color);
+    font-size: 0.8rem;
+}
+
+/* --- NEWS --- */
 .news-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
 }
 
 .news-card {
-    background-color: var(--card-background);
-    border-radius: 8px;
-    box-shadow: 0 4px 15px var(--shadow-color);
+    background-color: white;
+    border-radius: var(--radius);
     overflow: hidden;
-    text-align: left;
-    transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
 }
 
 .news-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
 
-.news-card img {
+.news-media-scroll {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    height: 220px;
+    background-color: #f0f0f0;
+}
+
+.news-media-scroll img, .video-placeholder {
+    flex: 0 0 100%; /* Une seule image visible à la fois, scrollable */
     width: 100%;
-    height: 200px;
+    height: 100%;
     object-fit: cover;
-    border-bottom: 1px solid #eee;
+    scroll-snap-align: start;
 }
 
-.news-card h3 {
-    font-size: 1.4em;
-    padding: 15px 20px 0;
+.video-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 1.2rem;
+    gap: 10px;
+}
+
+.news-content {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.news-content .date {
+    font-size: 0.8rem;
+    color: #999;
     margin-bottom: 10px;
-    color: var(--secondary-color);
+    display: block;
 }
 
-.news-card p {
-    padding: 0 20px;
-    font-size: 0.9em;
+.news-content h3 {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    line-height: 1.4;
 }
 
-.news-card .date {
-    font-size: 0.8em;
-    color: #777;
-    padding: 0 20px;
-    margin-bottom: 5px;
+.news-content p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 20px;
+    flex-grow: 1;
 }
 
-.news-card .read-more {
-    display: inline-block;
-    padding: 15px 20px 20px;
+.read-more {
     color: var(--primary-color);
-    font-weight: 600;
+    font-weight: 700;
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
 }
 
-.news-card .read-more:hover {
-    color: var(--button-hover);
+/* --- CONTACT --- */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 50px;
+    margin-bottom: 60px;
 }
 
-.text-center {
-    text-align: center;
+.contact-info {
+    padding-right: 20px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.info-item i {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(91, 168, 47, 0.1);
+    color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-item a {
+    color: var(--text-color-dark);
+}
+
+.big-socials {
     margin-top: 40px;
 }
 
-/* Contact Section */
-.contact-section {
-    background-color: var(--background-dark);
-    padding-bottom: 40px;
-}
-
-.contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 50px;
-    margin-top: 50px;
-    text-align: left;
-}
-
-.contact-info h3 {
-    color: var(--primary-color);
-}
-
-.contact-info ul {
-    margin-top: 20px;
-}
-
-.contact-info ul li {
-    margin-bottom: 15px;
-    font-size: 1.1em;
+.big-socials a {
+    font-size: 2rem;
+    margin-right: 20px;
     color: var(--secondary-color);
 }
 
-.contact-info ul li i {
-    margin-right: 10px;
-    color: var(--primary-color);
-    font-size: 1.2em;
-}
-
-.social-links {
-    margin-top: 30px;
-    display: flex;
-    gap: 20px;
-}
-
-.social-links a {
-    font-size: 1.8em;
-    color: var(--secondary-color);
-    transition: color 0.3s ease;
-}
-
-.social-links a:hover {
-    color: var(--primary-color);
-}
-
-.contact-form-container {
-    background-color: var(--card-background);
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px var(--shadow-color);
-}
-
-.contact-form-container h3 {
-    color: var(--primary-color);
-    margin-bottom: 25px;
-    text-align: center;
+.contact-form-box {
+    background-color: white;
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
 }
 
 .form-group {
@@ -574,301 +600,110 @@ section:nth-of-type(even) {
     margin-bottom: 8px;
     font-weight: 600;
     color: var(--secondary-color);
+    font-size: 0.9rem;
 }
 
-.form-group input[type="text"],
-.form-group input[type="email"],
+.form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1em;
-    font-family: 'Open Sans', sans-serif;
+    padding: 15px;
+    border: 1px solid transparent; /* Pas de bordure par défaut */
+    background-color: #f5f5f5; /* Fond gris clair */
+    border-radius: 8px;
+    font-family: inherit;
+    transition: all 0.3s;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-    outline: none;
+    background-color: white;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(91, 168, 47, 0.2);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(91, 168, 47, 0.1);
 }
 
-.contact-form button[type="submit"] {
-    width: 100%;
-    padding: 15px;
-    font-size: 1.1em;
-    margin-top: 10px;
-}
-
-.form-message {
-    margin-top: 15px;
-    padding: 10px;
-    border-radius: 5px;
-    font-weight: 600;
-    text-align: center;
-    display: none;
-}
-
-.form-message.success {
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-}
-
-.form-message.error {
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
-}
-
-.donation-section {
-    background-color: var(--card-background);
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px var(--shadow-color);
-    margin-top: 50px;
-    text-align: center;
-}
-
-.donation-section h3 {
-    color: var(--primary-color);
-    font-size: 2em;
-}
-
-.donation-section p {
-    font-size: 1.1em;
-    margin-bottom: 25px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.donation-info {
-    font-size: 0.9em;
-    color: #666;
-    margin-top: 15px;
-}
-
-/* Footer */
-footer {
+.donation-banner {
     background-color: var(--secondary-color);
-    color: var(--text-color-light);
-    padding: 30px 0;
-    text-align: center;
-    font-size: 0.9em;
+    color: white;
+    border-radius: var(--radius);
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    text-align: left;
 }
 
-footer a {
-    color: var(--text-color-light);
+.donation-content h3 {
+    color: var(--accent-color);
+    margin-bottom: 5px;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: #2c3e29; /* Vert très foncé */
+    color: #ccc;
+    padding: 40px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.footer-links {
+    margin-top: 15px;
+}
+
+.footer-links a {
+    color: #ccc;
     margin: 0 10px;
 }
 
-footer a:hover {
+.footer-links a:hover {
     color: var(--primary-color);
 }
 
-/* Styles pour les éléments désactivés par le script anti-double-clic */
-.button.disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-}
-
-/* Responsive Design */
-@media (max-width: 992px) { /* Ajustement pour les tablettes */
-    .about-content-wrapper {
-        flex-direction: column;
-        gap: 30px;
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
     }
-    .about-intro {
-        padding: 30px;
-    }
-    .about-intro p {
-        font-size: 1.1em;
-    }
-    .about-intro .highlight-text {
-        font-size: 1.25em;
-    }
-
-    /* Header responsive hidden */
-    .header-hidden-completely {
-        transform: translateY(-100%); /* Assure qu'il remonte complètement */
+    
+    .hero-content h2 {
+        font-size: 2.5rem;
     }
 }
 
 @media (max-width: 768px) {
-    header .container {
+    .nav-links {
+        display: none; /* Menu burger à implémenter si besoin, sinon simple stack */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: white;
         flex-direction: column;
-        text-align: center;
+        padding: 20px;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
     }
-
-    .logo {
-        margin-bottom: 15px;
+    
+    .nav-links.active {
+        display: flex;
     }
-
-    .logo img {
-        height: 120px; /* Taille réduite pour les petits écrans */
-    }
-
-    nav ul {
-        gap: 15px;
-        margin-top: 10px;
-    }
-
-    /* Ajuster la marge des sections pour les écrans plus petits */
-    section {
-        margin-top: -80px; /* Ajustez en fonction de la nouvelle hauteur du header */
-        padding-top: calc(80px + 80px); /* 80px de base + 80px de compensation */
-        scroll-margin-top: 80px; /* Ajuster pour le défilement des ancres */
-    }
-    .hero-section {
-        scroll-margin-top: 80px;
-    }
-
-    /* Header responsive hidden */
-    .header-hidden-completely {
-        transform: translateY(-100%); /* Assure qu'il remonte complètement */
-    }
-
-    h2 {
-        font-size: 2em;
-    }
-
-    /* Team Section Responsive */
-    .team-member {
-        padding: 25px;
-    }
-    .team-member h3 {
-        font-size: 1.8em;
-    }
-    .team-member .role, .team-member p {
-        font-size: 1em;
-    }
-    .small-button {
-        margin-left: auto;
-        margin-right: auto;
-        display: inline-block;
-    }
-
-    /* About Section Responsive */
-    .about-intro {
-        padding: 25px;
-    }
-    .about-intro p, .about-intro .highlight-text {
-        font-size: 1em;
-    }
-}
-
-@media (max-width: 480px) {
-    .logo img {
-        height: 100px; /* Taille encore plus réduite pour les très petits écrans */
-    }
-    section {
-        margin-top: -70px;
-        padding-top: calc(80px + 70px);
-        scroll-margin-top: 70px;
-    }
-    .hero-section {
-        scroll-margin-top: 70px;
-    }
-
-    /* Header responsive hidden */
-    .header-hidden-completely {
-        transform: translateY(-100%); /* Assure qu'il remonte complètement */
-    }
-
-    .logo h1 {
-        font-size: 1.5em;
-    }
-
-    nav ul li a {
-        font-size: 0.9em;
+    
+    .mobile-menu-btn {
+        display: block;
     }
 
     .hero-content h2 {
-        font-size: 2em;
+        font-size: 2rem;
     }
 
-    .button {
-        padding: 10px 20px;
-        font-size: 0.9em;
+    .donation-banner {
+        flex-direction: column;
+        text-align: center;
     }
-
-    .primary-button + .secondary-button {
-        margin-left: 0;
-        margin-top: 10px;
-    }
-
-    .contact-info ul li {
-        font-size: 1em;
-    }
-
-    .social-links {
-        justify-content: center;
-    }
-
-    /* Team Section Responsive */
-    .president-photo {
-        width: 150px;
-        height: 150px;
-    }
-}
-/* Styles pour les images côte à côte dans une news-card */
-.news-images-horizontal {
-    display: flex; /* Utilise Flexbox pour aligner les éléments sur une ligne */
-    gap: 10px; /* Ajoute un petit espace entre les images */
-    margin-bottom: 15px; /* Espace sous le conteneur d'images */
-    overflow-x: auto; /* Permet le défilement horizontal si les images sont trop grandes */
-    padding-bottom: 5px; /* Espace pour la barre de défilement si nécessaire */
-    scroll-snap-type: x mandatory; /* Optionnel: aide au défilement par 'snap' */
-    -webkit-overflow-scrolling: touch; /* Améliore le défilement sur iOS */
-}
-
-.news-images-horizontal img {
-    flex: 1 0 48%; /* Chaque image prendra environ la moitié de l'espace, avec un léger rétrécissement si nécessaire */
-    width: 100%; /* S'assure que l'image remplit son conteneur flex */
-    height: 200px; /* Hauteur fixe comme tes autres images */
-    object-fit: cover; /* Recadre l'image pour couvrir la zone sans déformation */
-    border-radius: 5px; /* Bords légèrement arrondis */
-    scroll-snap-align: start; /* Optionnel: les images se "snapperont" au début du défilement */
-}
-
-/* Ajustements pour les petits écrans si les images deviennent trop petites */
-@media (max-width: 600px) {
-    .news-images-horizontal {
-        flex-wrap: nowrap; /* Force les images à rester sur une seule ligne */
-    }
-    .news-images-horizontal img {
-        flex: 0 0 70%; /* Sur mobile, chaque image prendra 70% de la largeur du  */
-    }
-}
-/* Styles for videos side-by-side in a news-card */
-.news-videos-horizontal {
-    display: flex; /* Use Flexbox to align elements on a row */
-    gap: 10px; /* Add a small gap between the videos */
-    margin-top: 15px; /* Space above the video container */
-    margin-bottom: 15px; /* Space below the video container */
-    overflow-x: auto; /* Allows horizontal scrolling if videos are too wide */
-    padding-bottom: 5px; /* Space for scrollbar if needed */
-    -webkit-overflow-scrolling: touch; /* Improves scrolling on iOS */
-    scroll-snap-type: x mandatory; /* Optional: helps with "snapping" scroll behavior */
-}
-
-.news-videos-horizontal video {
-    flex: 1 0 48%; /* Each video takes about half the width, with slight flexibility */
-    width: 100%; /* Ensures the video fills its flex container */
-    height: 200px; /* Fixed height, matching your image height */
-    object-fit: cover; /* Crops the video to cover the area without distortion */
-    border-radius: 5px; /* Slightly rounded corners */
-    scroll-snap-align: start; /* Optional: videos will "snap" into view when scrolling */
-}
-
-/* Adjustments for smaller screens for videos */
-@media (max-width: 600px) {
-    .news-videos-horizontal {
-        flex-wrap: nowrap; /* Forces videos to stay on one line */
-    }
-    .news-videos-horizontal video {
-        flex: 0 0 70%; /* On mobile, each video will take 70% of the container width, allowing for scrolling */
+    
+    .team-content {
+        padding: 30px 20px;
     }
 }
